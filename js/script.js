@@ -1,107 +1,40 @@
-// NAVIGATION
 document.addEventListener("DOMContentLoaded", function () {
     const burgerMenu = document.querySelector(".burger-menu");
     const sidebar = document.querySelector(".sidebar");
     const hasSubmenu = document.querySelectorAll(".has-submenu");
 
-
-    // Ouverture / Fermeture du menu au clic sur le bouton burger
+    // Toggle Menu
     burgerMenu.addEventListener("click", function () {
-        if (sidebar.classList.contains("open")) {
-            burgerMenu.innerHTML = "☰"; // Retour au burger
-        } else {
-            burgerMenu.innerHTML = "×";
-        }
-
         sidebar.classList.toggle("open");
-        burgerMenu.classList.toggle("open"); // Ajoute ou enlève la classe .open
+        burgerMenu.textContent = sidebar.classList.contains("open") ? "×" : "☰";
     });
 
-    // Fermer la sidebar si on clique ailleurs
+    // Fermer le menu si on clique ailleurs
     document.addEventListener("click", function (event) {
         if (!sidebar.contains(event.target) && !burgerMenu.contains(event.target)) {
             sidebar.classList.remove("open");
-            burgerMenu.classList.remove("open"); // Supprime la classe "open"
-            burgerMenu.innerHTML = "☰"; // Remet le burger par défaut
+            burgerMenu.textContent = "☰";
         }
     });
 
-    // Sous-menu déroulant avec fermeture des autres sous-menus
-    hasSubmenu.forEach(element => {
-        element.addEventListener("click", (e) => {
+    // Gestion des sous-menus
+    hasSubmenu.forEach(item => {
+        item.addEventListener("click", (e) => {
             e.stopPropagation();
-            const submenu = element.querySelector(".submenu");
-            if (submenu) {
-                submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-            }
+            item.querySelector(".submenu").classList.toggle("open");
         });
     });
-});
 
+    // Carousel
+    let index = 0;
+    const items = document.querySelectorAll(".carousel-item");
+    const totalItems = items.length;
 
+    function showSlide(n) {
+        index = (n + totalItems) % totalItems;
+        document.querySelector(".carousel").style.transform = `translateX(-${index * 100}%)`;
+    }
 
-// SLOGAN
-const sentences = ["« Faster, Higher, Stronger, Together - Devise Olympique »", "« L'ouverture d'esprit n'est pas une fracture du crâne - Pierre Desproges »"];
-let index = 0;
-const textElement = document.getElementById("changingSlogan");
-
-function changeSlogan() {
-    textElement.style.opacity = 0; // Début du fondu
-
-    setTimeout(() => {
-        index = (index + 1) % sentences.length;
-        textElement.textContent = sentences[index]; // Change la phrase
-        textElement.style.opacity = 1; // Réapparition en fondu
-    }, 1000); // Temps du fondu avant affichage de la phrase suivante
-}
-
-setInterval(changeSlogan, 8000);
-
-
-
-// ADDED VALUE SECTION
-// CARD TEST
-// Exemple d'action au clic sur une carte
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-        alert('Vous avez cliqué sur une carte !');
-    });
-});
-
-
-
-// TRUST
-const carousel = document.querySelector('.carousel');
-const items = document.querySelectorAll('.carousel-item');
-const totalItems = items.length;
-let i = 0;
-
-function showSlide(n) {
-  i = (n + totalItems) % totalItems;
-  carousel.style.transform = `translateX(-${i * 100}%)`;
-}
-
-// FORM
-const form = document.getElementById('contact-form');
-const responseText = document.getElementById('response');
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
-
-  try {
-    const res = await fetch('/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-
-    const text = await res.text();
-    responseText.textContent = text;
-    form.reset();
-  } catch (err) {
-    responseText.textContent = "Erreur d'envoi du formulaire.";
-  }
+    document.querySelector(".carousel-btn.prev").addEventListener("click", () => showSlide(index - 1));
+    document.querySelector(".carousel-btn.next").addEventListener("click", () => showSlide(index + 1));
 });

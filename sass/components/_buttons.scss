@@ -1,0 +1,7 @@
+.btn {
+  @include button();
+}
+
+.btn-secondary {
+  @include button(map-get($colors, secondary), map-get($colors, text));
+}

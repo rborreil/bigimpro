@@ -1,0 +1,27 @@
+// Mixin Responsive
+@mixin respond($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Mixin Bouton
+@mixin button($bg: map-get($colors, primary), $text: white) {
+  background: $bg;
+  color: $text;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background: darken($bg, 10%);
+  }
+}
+
+// Mixin Flexbox
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

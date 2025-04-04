@@ -1,0 +1,17 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: $font-primary;
+  color: map-get($colors, primary);
+  text-align: center;
+}
+
+img {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+}

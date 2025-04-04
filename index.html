@@ -12,7 +12,7 @@
     </style>
     <!-- CDN -->
     <script src="https://kit.fontawesome.com/747b4ee134.js" crossorigin="anonymous"></script>
-    <title>V1 Site Impro</title>
+    <title>V2 IMPRO</title>
 </head>
 
 <body>
@@ -20,11 +20,11 @@
     <body>
         <!-- Header -->
         <header class="header">
-            <!-- Header Title -->
-            <div class="header-title">
-                <h1>Big'Impro</h1>
-            </div>
             <div class="container">
+                <!-- Header Title -->
+                <div class="header-title">
+                    <h1>Big'Impro</h1>
+                </div>
 
                 <!-- Bouton Burger -->
                 <div class="burger-menu">☰</div>
@@ -64,7 +64,7 @@
                 </div>
 
                 <!-- Why Items -->
-                <!-- <div class="why-items">
+                <div class="why-items">
                     <div class="why-item">
                         <i class="fa-solid fa-people-group"></i>
                         <h3>Formations & Événements</h3>
@@ -77,7 +77,7 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                         <h3>Méthode certifiée</h3>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- Btn Line -->
                 <div class="btn-line">
@@ -111,9 +111,7 @@
         <!-- Valeur Ajoutée -->
         <div class="added-value">
             <div class="container">
-                <!-- <div class="title-container"> -->
                 <h2>Valeur Ajoutée</h2>
-                <!-- </div> -->
                 <!-- CARD TEST -->
                 <div class="card-container">
 
@@ -184,24 +182,18 @@
             <div class="container">
                 <h2>Apprendre à Oser</h2>
                 <div class="vertical-layout">
-                    <div class="text-container">
-                        <div class="text-subcontainer">
-                            <h3>Objectif </h3>
-                            <p>Travailler sur des compétences précises en impliquant les participants par le
-                                jeu.
-                            </p>
-                        </div>
-                        <div class="text-subcontainer">
-                            <h3>Notre approche </h3>
-                            <p>Renforcer les soft skills clés tels que la communication, l'adaptabilité et
-                                la
-                                créativité, en utilisant le jeu et l'interaction comme outils d'apprentissage.</p>
-                        </div>
-                        <div class="text-subcontainer">
-                            <h3>Thématiques </h3>
-                            <p>Négociation & gestion des conflits, prévention des risques psychosociaux,
-                                diversité & inclusion…</p>
-                        </div>
+                    <div>
+                        <h3>Objectif </h3>
+                        <p>Travailler sur des compétences précises en impliquant les participants par le
+                            jeu.
+                        </p>
+                        <h3>Notre approche </h3>
+                        <p>Renforcer les soft skills clés tels que la communication, l'adaptabilité et
+                            la
+                            créativité, en utilisant le jeu et l'interaction comme outils d'apprentissage.</p>
+                        <h3>Thématiques </h3>
+                        <p>Négociation & gestion des conflits, prévention des risques psychosociaux,
+                            diversité & inclusion…</p>
                     </div>
                     <!-- <img src="https://placehold.co/500x500" alt=""> -->
                     <img src="./img/comedian-pinterest-1.jpg" alt="">
@@ -214,9 +206,9 @@
             <div class="container">
                 <h2>Ils nous font confiance</h2>
                 <div class="carousel-container">
-                    <button class="carousel-btn prev" onclick="showSlide(i - 1)">
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 6L9 12L15 18" stroke="black" stroke-width="2" stroke-linecap="round"
+                    <button class="carousel-btn prev" onclick="showSlide(index - 1)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 6L9 12L15 18" stroke="white" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
@@ -248,9 +240,9 @@
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-btn next" onclick="showSlide(i + 1)">
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 6L15 12L9 18" stroke="black" stroke-width="2" stroke-linecap="round"
+                    <button class="carousel-btn next" onclick="showSlide(index + 1)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
@@ -261,90 +253,39 @@
         <!-- News Section -->
         <div class="news">
             <div class="container">
-                <h2>Les Actualités</h2>
-                <!-- CARD TEST -->
-                <div class="group-container">
-                    <div class="text-container">
+                <h2>Aux dernières nouvelles</h2>
+                <!-- Shows Section -->
+                <section id="shows" class="shows">
+                    <div class="container">
                         <h3>Nos Spectacles</h3>
-                        <div class="card-container">
-                            <div class="card">
-                                <div class="image-container">
-                                    <img src="./img/impro-gpt-2.jpg" alt="Communication">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Match d'Impro - 15/12/2024</h3>
-                                    <p class="card-text">Un duel hilarant entre deux équipes sous l’œil du public.</p>
-                                </div>
+                        <div class="show-grid">
+                            <div class="show">
+                                <h3>Match d'Impro</h3>
+                                <p>Un duel hilarant entre deux équipes sous l’œil du public.</p>
+                                <span>Date : 15 décembre 2024</span>
                             </div>
-
-                            <div class="card">
-                                <div class="image-container">
-                                    <img src="./img/impro-gpt-1.jpg" alt="Collaboration">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Impro Contes - 20/01/2025</h3>
-                                    <p class="card-text">Des histoires improvisées qui émerveilleront petits et grands.
-                                    </p>
-                                </div>
+                            <div class="show">
+                                <h3>Impro Contes</h3>
+                                <p>Des histoires improvisées qui émerveilleront petits et grands.</p>
+                                <span>Date : 20 janvier 2025</span>
                             </div>
-
-                            <div class="card">
-                                <div class="image-container">
-                                    <img src="./img/impro-gpt-3.jpg" alt="Innovation">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Théâtre Forum - 05/02/2025</h3>
-                                    <p class="card-text">Participez à des scènes interactives autour de thématiques
-                                        sociétales.
-                                    </p>
-                                </div>
+                            <div class="show">
+                                <h3>Théâtre Forum</h3>
+                                <p>Participez à des scènes interactives autour de thématiques sociétales.</p>
+                                <span>Date : 5 février 2025</span>
                             </div>
                         </div>
                     </div>
-                    <div class="text-container">
-                        <h3>Articles</h3>
-                        <div class="card-container">
-
-                            <div class="card">
-                                <div class="image-container">
-                                    <img src="./img/impro-gpt-4.jpg" alt="Confiance en soi">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Confiance en soi & Leadership</h3>
-                                    <p class="card-text">En s’affirmant et en prenant confiance par le jeu</p>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="image-container">
-                                    <img src="./img/impro-gpt-5.jpg" alt="Adaptabilité">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Adaptabilité</h3>
-                                    <p class="card-text">En transformant les imprévus en opportunités</p>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="image-container">
-                                    <img src="./img/impro-gpt-6.jpg" alt="Cohésion d’équipe">
-                                </div>
-                                <div class="card-content">
-                                    <h3 class="card-title">Cohésion d’équipe</h3>
-                                    <p class="card-text">En partageant des moments fédérateurs</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </section>
             </div>
         </div>
+
 
         <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
                 <h2>Contactez-nous</h2>
-                <!-- <p>Toutes nos interventions sont sur-mesure.
+                <p>Toutes nos interventions sont sur-mesure.
 
                     Nous nous adaptons à vos besoins, à votre budget et à votre nombre de participants (de 6 à +1500
                     personnes, selon votre projet).
@@ -356,8 +297,8 @@
                     contact@bigimpro.fr
 
                     Et si vous préférez parler directement à un humain :
-                    07 XX XX XX XX</p> -->
-                <form action="#" id="contact-form">
+                    07 XX XX XX XX</p>
+                <form action="#">
                     <label for="name">Nom *</label>
                     <input type="text" id="name" name="name" placeholder="Antoine Dupont" required>
 
@@ -376,14 +317,12 @@
 
                     <label for="message">Message *</label>
                     <textarea id="message" name="message" rows="4"
-                        placeholder="Bonjour, mes employés n'ont pas d'humour, qu'est-ce que vous pouvez faire pour nous ?"
+                        placeholder="Bonjour, mes employés n'ont pas d'humour, qu'est-ce que vous pouvez faire pour nous ?\n Merci d'avance,\n Bien cordialement\n Antoine"
                         required></textarea>
 
                     <div class="btn-line">
                         <button type="submit" class="btn">Envoyer</button>
                     </div>
-
-                    <p id="response"></p>
                 </form>
             </div>
         </section>
