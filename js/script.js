@@ -80,3 +80,28 @@ function showSlide(n) {
   i = (n + totalItems) % totalItems;
   carousel.style.transform = `translateX(-${i * 100}%)`;
 }
+
+// FORM
+const form = document.getElementById('contact-form');
+const responseText = document.getElementById('response');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const res = await fetch('/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    const text = await res.text();
+    responseText.textContent = text;
+    form.reset();
+  } catch (err) {
+    responseText.textContent = "Erreur d'envoi du formulaire.";
+  }
+});
