@@ -1,0 +1,876 @@
+/* Commandes SASS */
+// ./dart-sass/sass --help
+// ./dart-sass/sass sass/style.scss
+// ./dart-sass/sass sass/style.scss ./css/style.css
+// ./dart-sass/sass.bat sass/style.scss ./css/style.css --watch
+
+// Structurer projet SCSS
+/*
+scss/
+│── abstracts/         # Variables, mixins, fonctions
+│   ├── _variables.scss
+│   ├── _mixins.scss
+│   ├── _functions.scss
+│── base/              # Styles de base et resets
+│   ├── _reset.scss
+│   ├── _typography.scss
+│   ├── _global.scss
+│── components/        # Boutons, cartes, formulaires...
+│   ├── _buttons.scss
+│   ├── _cards.scss
+│── layout/            # Grilles, header, footer...
+│   ├── _grid.scss
+│   ├── _header.scss
+│── pages/             # Styles spécifiques à certaines pages
+│   ├── _home.scss
+│   ├── _about.scss
+│── themes/            # Thèmes de couleur si besoin
+│   ├── _light.scss
+│   ├── _dark.scss
+│── main.scss          # Fichier principal qui importe tout
+
+*/
+
+/* Variables CSS */
+:root {
+  --fontDyna: "DynaPuff", serif;
+  --fontLato: "Lato", serif;
+  --orange: #e86730;
+  --transOrange: #e86730b2;
+  --orangeText: #ff793f;
+  --orangeSam: #eb5600;
+  --blue: #22a692;
+  --transBlue: #22a692cf;
+  // --blueSam: #1a9988;
+  --purple: #7c609b;
+  --transPurple: #7c609bbc;
+  --red: #8d3b3b;
+  --white: #fff;
+  --lightWhite: #ffe6d0;
+  --black: #000;
+  --grey: #ddd;
+}
+
+/* Body */
+body {
+  caret-color: transparent;
+  font-family: var(--fontLato);
+  overflow-x: hidden;
+}
+
+// Variables SCSS
+// Types de variables à intégrer (calquer sur variables CSS)
+/* 
+$font-primary: var(--font-primary);
+$font-secondary: var(--font-secondary);
+$color-orange: var(--orange);
+$color-orange-text: var(--orangeText);
+*/
+
+$icon-size: (
+  default: 1.75rem,
+  tablet: 5vw,
+  desktop: 3rem,
+);
+
+$para-font-size: (
+  default: 0.9rem,
+  tablet: 2.25vw,
+  desktop: 1.5rem,
+);
+
+// Breakpoints (tailles d'écran)
+$breakpoint-tablet: "(min-width: 551px)";
+$breakpoint-desktop: "(min-width: 978px)";
+// A remplacer par : (en intégrant dans le reste du projet)
+/* $breakpoints: (
+  mobile: 480px,
+  tablet: 768px,
+  desktop: 1024px
+); */
+
+// Intégrer système de Typos
+
+// Intégrer système de boutons
+
+// Intégrer media queries via mixin
+// Mixins
+@mixin btn(
+  $bg-color: var(--white),
+  $text-color: var(--orangeText),
+  $bg-hover: var(--lightWhite),
+  $text-hover: var(--blue),
+  $borderRadius: 50px
+) {
+  background-color: $bg-color;
+  border: 1px solid var(--blue);
+  border-radius: $borderRadius;
+  color: $text-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25vw;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  width: auto;
+  &:hover {
+    background-color: $bg-hover;
+    color: $text-hover;
+  }
+  @media #{$breakpoint-tablet} {
+    width: 10rem;
+  }
+  @media #{$breakpoint-desktop} {
+    width: 15rem;
+  }
+}
+
+@mixin h2($color: var(--white)) {
+  // background: #22a692cf;
+  border-radius: 1rem;
+  color: $color;
+  font-family: var(--fontDyna);
+  font-weight: 500;
+  font-size: 1.75rem;
+  padding: 1rem 0;
+  margin-bottom: 10vh;
+  // text-shadow: 5px 5px 5px #00000092;
+  text-shadow: 5px 5px 5px #00000084;
+  text-align: center;
+  @media #{$breakpoint-tablet} {
+    font-size: 4vw;
+  }
+  @media #{$breakpoint-desktop} {
+    font-size: 2.5rem;
+  }
+}
+
+@mixin h3(
+  $color: var(--white),
+  $fontSize: 1rem,
+  $fontSizeTablet: 2.5vw,
+  $fontSizeDesktop: 1.5rem,
+  $fontFamily: var(--fontLato),
+  $margin-top: 0
+) {
+  color: $color;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  margin-top: $margin-top;
+  @media #{$breakpoint-tablet} {
+    font-size: $fontSizeTablet;
+  }
+  @media #{$breakpoint-desktop} {
+    font-size: $fontSizeDesktop;
+  }
+}
+
+@mixin p(
+  $color: var(--white),
+  $fontSize: 1rem,
+  $fontSizeTablet: 2.5vw,
+  $fontSizeDesktop: 1.5rem
+) {
+  color: $color;
+  font-family: var(--fontLato);
+  font-size: $fontSize;
+  letter-spacing: 0.1rem;
+  line-height: 1.5rem;
+  // margin: auto;
+  padding: 0.5rem;
+  @media #{$breakpoint-tablet} {
+    font-size: $fontSizeTablet;
+  }
+  @media #{$breakpoint-desktop} {
+    font-size: $fontSizeDesktop;
+  }
+}
+
+// Composants réutilisables
+// Containers
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10vh 0;
+}
+.group-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+}
+.text-container {
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h2 {
+  @include h2();
+}
+
+.added-value h2,
+.trust h2,
+.contact h2 {
+  @include h2($color: var(--black));
+  background: #ffffffbe;
+  // background: #22a69256;
+  border-radius: 1rem;
+  margin: 0 auto 10vh;
+  max-width: 66.6%;
+  padding: 1rem 0;
+  text-shadow: none;
+  // text-shadow: 1px 1px 5px #fff;
+}
+
+.btn-line {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  @include btn();
+  // a {
+  //   color: var(--orangeText);
+  //   text-decoration: none;
+  //   &:hover {
+  //     // background-color: var(--lightWhite);
+  //     color: var(--blueSam);
+  //   }
+  // }
+}
+
+img {
+  border-radius: 1rem;
+  height: 50vw;
+  width: 50vw;
+  @media #{$breakpoint-tablet} {
+    height: 40vw;
+    width: 40vw;
+  }
+  @media #{$breakpoint-desktop} {
+    height: 30vw;
+    width: 30vw;
+  }
+}
+
+p {
+  @include p();
+}
+
+h3 {
+  @include h3();
+}
+
+.vertical-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin: 0 auto;
+  width: 100%;
+  @media #{$breakpoint-tablet} {
+    // flex-wrap: nowrap;
+    // gap: 1rem;
+  }
+  @media #{$breakpoint-desktop} {
+    flex-wrap: nowrap;
+    // gap: 5rem;
+  }
+}
+
+// TITLE TEST
+// .title-container {
+//   position: sticky;
+//   top: clamp(10px, 10px, 100px);
+// }
+
+// CARDS
+.card-container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .card {
+    width: 300px;
+    padding: 2rem;
+    border: 1px solid var(--orange);
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .image-container {
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+    .card-content {
+      .card-title {
+        @include h3($color: var(--black));
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 2.25rem;
+      }
+      .card-text {
+        @include p(
+          $color: #555,
+          $fontSize: 0.75rem,
+          $fontSizeTablet: 1.8vw,
+          $fontSizeDesktop: 1.2rem
+        );
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* Tout importer dans le fichier principal, par exemple: 
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/reset";
+@import "base/typography";
+@import "components/buttons";
+@import "layout/grid";
+
+*/
+
+/* Header */
+.header {
+  // background: var(--orange) url("../img/motif-zebre.png") 50% 50% no-repeat;
+  background: url(../img/impro-gpt-3.jpg);
+  background-size: cover;
+  background-position: center;
+  // background-blend-mode: soft-light;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  min-height: 100vh;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 10vh;
+    h2 {
+      text-shadow: 5px 5px 5px #000;
+    }
+  }
+  .nav {
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+  .header-title {
+    margin-right: 3rem;
+    margin-left: auto;
+    position: sticky;
+    top: 30px;
+    h1 {
+      color: var(--blue);
+      font-family: var(--fontDyna);
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-size: 2.5rem;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+      text-align: end;
+      text-shadow: 4px 4px 12px rgb(0, 0, 0);
+      @media #{$breakpoint-tablet} {
+        font-size: 7vw;
+      }
+      @media #{$breakpoint-desktop} {
+        font-size: 4.5rem;
+      }
+    }
+  }
+  // .logo {
+  //   font-size: 1.8rem;
+  //   font-weight: bold;
+  //   text-transform: uppercase;
+  // }
+  /* Bouton Burger */
+  .burger-menu {
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 0;
+    background: var(--black);
+    color: var(--white);
+    padding: 0.6rem 0.6rem 0.6rem 0.45rem;
+    text-align: center;
+    border-radius: 0 50% 50% 0;
+    min-width: 1rem;
+    z-index: 1000;
+    &:hover,
+    &.open:hover {
+      color: var(--orange);
+      cursor: pointer;
+    }
+    &.open {
+      background: var(--white);
+      color: var(--black);
+    }
+    @media #{$breakpoint-tablet} {
+      font-size: 1.5rem;
+      padding: 0.8rem 0.8rem 0.8rem 0.6rem;
+      min-width: 1.5rem;
+    }
+    @media #{$breakpoint-desktop} {
+      font-size: 2rem;
+      padding: 1rem 1rem 1rem 0.75rem;
+      min-width: 1.25rem;
+    }
+  }
+  /* Menu latéral (fermé par défaut) */
+  .sidebar {
+    position: fixed;
+    top: 8vh;
+    // bottom: auto;
+    border-radius: 0 50% 50% 0;
+    left: -250px; /* Caché au départ */
+    width: 250px;
+    height: auto;
+    background: var(--black);
+    transition: left 0.3s ease-in-out;
+    padding-top: 3rem;
+    z-index: 999;
+    /* Affichage du menu ouvert */
+    &.open {
+      left: 0;
+    }
+    // Style des liens
+    ul {
+      font-size: 0.75rem;
+      list-style: none;
+      padding-left: 1rem;
+      text-transform: uppercase;
+      overflow-y: auto;
+      max-height: calc(100vh - 25vh);
+      /* Masquer la scrollbar sur Chrome, Safari et Edge */
+      &::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+      /* Masquer la scrollbar sur Firefox */
+      scrollbar-width: none;
+      @media #{$breakpoint-tablet} {
+        font-size: 0.8rem;
+      }
+      @media #{$breakpoint-desktop} {
+        font-size: 0.85rem;
+      }
+      /* Sous-menus */
+      .submenu {
+        padding-top: 0.5rem;
+        display: none;
+      }
+    }
+    li {
+      padding: 0.75rem;
+      @media #{$breakpoint-tablet} {
+        padding: 0.8rem;
+      }
+      @media #{$breakpoint-desktop} {
+        padding: 0.9rem;
+      }
+    }
+    a {
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      &:hover {
+        color: var(--orange);
+        text-decoration: none;
+        display: block;
+      }
+      /* Bouton CTA */
+      &.cta-button {
+        background: var(--orange);
+        padding: 8px 15px;
+        display: block;
+        text-align: center;
+        max-width: min-content;
+        margin: 1.5rem;
+      }
+      &.cta-button:hover {
+        color: inherit;
+      }
+    }
+  }
+  // Slogan
+  .slogan {
+    #changingSlogan {
+      height: 50px;
+      opacity: 1;
+      padding: 15vh 0;
+      transition: opacity 1s ease-in-out;
+    }
+  }
+  // Why Items
+  .why-items {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    .why-item {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 30px;
+      line-height: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+      width: 100%;
+      @media #{$breakpoint-tablet} {
+        width: 50%;
+      }
+      @media #{$breakpoint-desktop} {
+        width: 33%;
+      }
+      i {
+        color: var(--blue);
+        font-size: map-get($icon-size, default);
+        @media #{$breakpoint-tablet} {
+          font-size: map-get($icon-size, tablet);
+        }
+        @media #{$breakpoint-desktop} {
+          font-size: map-get($icon-size, desktop);
+        }
+      }
+      // h3 {
+      //   color: var(--white);
+      //   font-size: map-get($para-font-size, default);
+      //   @media #{$breakpoint-tablet} {
+      //     font-size: map-get($para-font-size, tablet);
+      //   }
+      //   @media #{$breakpoint-desktop} {
+      //     font-size: map-get($para-font-size, desktop);
+      //   }
+      // }
+    }
+  }
+}
+
+/* Who Section */
+.who {
+  background: var(--blue) url("../img/motif-serpent.png") 50% 50% no-repeat;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  min-height: 100vh;
+  @media #{$breakpoint-tablet} {
+    // margin-top: 10vh;
+  }
+  @media #{$breakpoint-desktop} {
+    // margin-top: 10vh;
+  }
+  .text-container {
+    background: var(--transBlue);
+  }
+}
+
+/* AddedValue Section */
+.added-value {
+  background: url(../img/impro-gpt-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  min-height: 100vh;
+  // CARD TEST
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    border: 2px solid var(--orange);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--blue);
+      filter: blur(1.5rem);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    &:hover::before {
+      opacity: 0.5;
+    }
+    i {
+      font-size: 40px;
+      color: var(--orange);
+      transition: color 0.3s ease;
+    }
+    // &:hover i {
+    //   color: white;
+    // }
+  }
+}
+
+// @media (max-width: 600px) {
+//   .card {
+//     width: 100%;
+//   }
+// }
+
+/* What Section */
+.what {
+  background: url("../img/fond-violet-cochon.png");
+  background-size: cover;
+  background-blend-mode: soft-light;
+  // height: auto;
+  min-height: 100vh;
+  .text-container {
+    background: var(--transPurple);
+  }
+  h3 {
+    @include h3(
+      $fontSize: 1.25rem,
+      $fontSizeTablet: 1.5rem,
+      $fontSizeDesktop: 2rem,
+      $fontFamily: var(--fontDyna)
+    );
+    // margin-top: 2rem;
+  }
+}
+
+/* Trust Section */
+.trust {
+  background: url(../img/impro-gpt-2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  min-height: 100vh;
+  .container {
+    width: 100%;
+    @media #{$breakpoint-tablet} {
+      width: 90%;
+    }
+  }
+  .carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      .carousel-item {
+        min-width: 100%;
+        box-sizing: border-box;
+        overflow: visible;
+        .card {
+          background: #ffffffe7;
+          padding: 4rem;
+          margin: 0 auto;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+          // border-radius: 16px;
+          // background: linear-gradient(145deg, #ffffff, #f0f0f0);
+          transition: transform 0.3s ease;
+          min-height: 200px;
+          overflow: visible;
+          width: 100%;
+          &:hover {
+            // transform: scale(1.05);
+          }
+          @media #{$breakpoint-tablet} {
+            border-radius: 1rem;
+            padding: 4rem 6rem;
+          }
+          @media #{$breakpoint-desktop} {
+            padding: 4rem 7rem;
+          }
+          h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #111827;
+          }
+          .company {
+            font-size: 0.9rem;
+            color: #6b7280;
+          }
+          .comment {
+            margin: 15px 0;
+            font-style: italic;
+            color: #374151;
+          }
+          .stars {
+            color: #fbbf24;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid rgba(0, 0, 0, 0.75);
+      padding: 0.75rem;
+      cursor: pointer;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.153);
+      }
+      &.prev {
+        left: 0.5rem;
+        @media #{$breakpoint-tablet} {
+          left: 2rem;
+        }
+      }
+      &.next {
+        right: 0.5rem;
+        @media #{$breakpoint-tablet} {
+          right: 2rem;
+        }
+      }
+      svg {
+        @media #{$breakpoint-tablet} {
+          height: 15px;
+          width: 15px;
+        }
+        @media #{$breakpoint-desktop} {
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+  }
+}
+
+/* News Section */
+.news {
+  background: url("../img/fond-orange-lapin.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-blend-mode: soft-light;
+  height: auto;
+  min-height: 100vh;
+  .text-container {
+    background: var(--transOrange);
+  }
+  h3 {
+    @include h3(
+      $fontSize: 1.25rem,
+      $fontSizeTablet: 1.5rem,
+      $fontSizeDesktop: 2rem,
+      $fontFamily: var(--fontDyna)
+    );
+  }
+}
+
+/* Contact Section */
+.contact {
+  background: url(../img/impro-gpt-3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media #{$breakpoint-desktop} {
+    background-position: center;
+  }
+  height: auto;
+  min-height: 100vh;
+  text-align: center;
+  .container {
+    width: 100%;
+    @media #{$breakpoint-tablet} {
+      width: 90%;
+    }
+  }
+  p {
+    @include p($color: var(--black));
+  }
+  form {
+    background: #ffffffe7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    padding: 2.5rem 3rem;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    @media #{$breakpoint-tablet} {
+      border-radius: 1rem;
+      width: 80vw;
+    }
+    @media #{$breakpoint-desktop} {
+      width: 60vw;
+    }
+    label {
+      margin-right: auto;
+    }
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-bottom: 2px solid var(--grey);
+      border-radius: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      @include btn($borderRadius: 12px);
+      width: 50vw;
+      &:hover {
+        background-color: var(--orange);
+        color: var(--white);
+      }
+    }
+  }
+}
+
+/* Footer */
+.footer {
+  background: var(--red) url("../img/motif-zebre.png") 50% 50% no-repeat;
+  background-size: cover;
+  background-blend-mode: exclusion;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+}
