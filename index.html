@@ -23,6 +23,8 @@
             <!-- Header Title -->
             <div class="header-title">
                 <h1>Big'Impro</h1>
+                <!-- Ajouter lien cliquable sur Titre -->
+                <!-- <a href=""></a> -->
             </div>
             <div class="container">
 
@@ -47,14 +49,17 @@
                                 </ul>
                             </li>
                         </div>
-                        <li class="has-submenu">
-                            <a href="#institutional">Institutionnel <span class="arrow">▼</span></a>
-                            <ul class="submenu">
-                                <li><a href="#integration">Insertion</a></li>
-                                <li><a href="#academic">Scolaire</a></li>
-                                <li><a href="#handicap">Handicap</a></li>
-                            </ul>
-                        </li>
+                        <div class="dropdown">
+                            <a href="#institutional">Institutionnel</a>
+                            <li class="has-submenu">
+                                <span class="arrow">▼</span>
+                                <ul class="submenu">
+                                    <li><a href="#integration">Insertion</a></li>
+                                    <li><a href="#academic">Scolaire</a></li>
+                                    <li><a href="#handicap">Handicap</a></li>
+                                </ul>
+                            </li>
+                        </div>
                         <!-- <li><a href="#">Conférences IMPACT</a></li> -->
                         <!-- <li><a href="#">La méthode OUI ET®</a></li> -->
                         <li><a href="#news">News</a></li>
@@ -85,7 +90,7 @@
 
                 <!-- Btn Line -->
                 <div class="btn-line">
-                    <a href="mailto:contact@bigimpro.fr"><button class="btn">Contact</button></a>
+                    <a href="#contact"><button class="btn">Contact</button></a>
                 </div>
             </div>
         </header>
