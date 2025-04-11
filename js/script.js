@@ -28,8 +28,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Sous-menu déroulant avec fermeture des autres sous-menus
     hasSubmenu.forEach(element => {
-        element.addEventListener("click", (e) => {
+        element.addEventListener("mouseover", (e) => {
             e.stopPropagation();
+
+            // Ferme tous les autres sous-menus
+            hasSubmenu.forEach(other => {
+                if (other !== element) {
+                    const otherSubmenu = other.querySelector(".submenu");
+                    if (otherSubmenu) {
+                        otherSubmenu.style.display = "none";
+                    }
+                }
+            });
+
+            // Toggle le sous-menu cliqué
             const submenu = element.querySelector(".submenu");
             if (submenu) {
                 submenu.style.display = submenu.style.display === "block" ? "none" : "block";
