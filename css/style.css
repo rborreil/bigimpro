@@ -437,7 +437,7 @@ h3 {
   padding-left: 1rem;
   text-transform: uppercase;
   overflow-y: auto;
-  max-height: 75vh;
+  max-height: 80vh;
   /* Masquer la scrollbar sur Chrome, Safari et Edge */
   /* Masquer la scrollbar sur Firefox */
   scrollbar-width: none;
@@ -458,20 +458,28 @@ h3 {
   }
 }
 .header .sidebar ul .submenu {
-  padding-top: 0.5rem;
-  margin-left: -70%;
+  padding-top: 1.25rem;
   display: none;
 }
-.header .sidebar li, .header .sidebar .dropdown {
+.header .sidebar ul .sub-1 {
+  margin-left: -70%;
+}
+.header .sidebar ul .sub-2 {
+  margin-left: -100%;
+}
+.header .sidebar li,
+.header .sidebar .dropdown {
   padding: 0.75rem;
 }
 @media (min-width: 551px) {
-  .header .sidebar li, .header .sidebar .dropdown {
+  .header .sidebar li,
+  .header .sidebar .dropdown {
     padding: 0.8rem;
   }
 }
 @media (min-width: 978px) {
-  .header .sidebar li, .header .sidebar .dropdown {
+  .header .sidebar li,
+  .header .sidebar .dropdown {
     padding: 0.9rem;
   }
 }
@@ -507,8 +515,10 @@ h3 {
 }
 .header .sidebar .dropdown .arrow {
   color: var(--white);
+  display: inline-block;
+  position: fixed;
   text-decoration: none;
-  display: block;
+  transform: none;
 }
 .header .sidebar .dropdown .arrow:hover {
   color: var(--orange);
@@ -702,7 +712,7 @@ h3 {
   font-size: 1.5rem;
   color: #111827;
 }
-.trust .carousel-container .carousel .carousel-item .card .company {
+.trust .carousel-container .carousel .carousel-item .card .structure {
   font-size: 0.9rem;
   color: #6b7280;
 }
@@ -772,7 +782,7 @@ h3 {
   min-height: 100vh;
 }
 .news .text-container {
-  background: var(--transOrange);
+  background: transparent;
 }
 .news h3 {
   color: var(--white);

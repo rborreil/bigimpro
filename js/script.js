@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Sous-menu déroulant avec fermeture des autres sous-menus
     hasSubmenu.forEach(element => {
-        element.addEventListener("mouseover", (e) => {
+        element.addEventListener("click", (e) => {
             e.stopPropagation();
 
             // Ferme tous les autres sous-menus
@@ -46,6 +46,10 @@ document.addEventListener("DOMContentLoaded", function () {
             if (submenu) {
                 submenu.style.display = submenu.style.display === "block" ? "none" : "block";
             }
+
+            // Pivote la flèche de 90° quand cliquée
+            const arrow = element.querySelector(".arrow");
+            arrow.style.transform = arrow.style.transform === "rotate(90deg)" ? "none" : "rotate(90deg)";
         });
     });
 });

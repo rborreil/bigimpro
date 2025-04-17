@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="./css/meyer-reset.css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Rubik+Vinyl&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+    </style>
+    <!-- CDN -->
+    <script src="https://kit.fontawesome.com/747b4ee134.js" crossorigin="anonymous"></script>
+    <title>Entreprise</title>
+</head>
+
+<body>
+
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <!-- Header Title -->
+            <div class="header-title">
+                <h1>Institutions</h1>
+                <!-- Ajouter lien cliquable sur Titre -->
+                <!-- <a href=""></a> -->
+            </div>
+            <div class="container">
+
+                <!-- Bouton Burger -->
+                <div class="burger-menu">☰</div>
+
+                <!-- Menu latéral -->
+                <nav class="sidebar">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="#who">Qui sommes-nous ?</a></li>
+                        <li><a href="#added-value">Valeur Ajoutée</a></li>
+                        <div class="dropdown">
+                            <a href="companies.html">Entreprises</a>
+                            <li class="has-submenu">
+                                <span class="arrow">&#x25B6;</span>
+                                <ul class="submenu sub-1">
+                                    <li><a href="#team-building">Team building</a></li>
+                                    <li><a href="#training">Formations</a></li>
+                                    <li><a href="#awareness">Sensibilisation</a></li>
+                                    <li><a href="#top-management">Top Management</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#institutional">Institutions</a>
+                            <li class="has-submenu">
+                                <span class="arrow">&#x25B6;</span>
+                                <ul class="submenu sub-2">
+                                    <li><a href="#integration">Insertion</a></li>
+                                    <li><a href="#academic">Scolaire</a></li>
+                                    <li><a href="#handicap">Handicap</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                        <!-- <li><a href="#">Conférences IMPACT</a></li> -->
+                        <!-- <li><a href="#">La méthode OUI ET®</a></li> -->
+                        <li><a href="#news">Les Actus</a></li>
+                        <li><a href="#contact" class="cta-button">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Slogan -->
+                <div class="slogan">
+                    <h2>Travaillons mieux, ensemble et révélons vos potentiels</h2>
+                </div>
+
+                <!-- Why Items -->
+                <!-- <div class="why-items">
+                    <div class="why-item">
+                        <i class="fa-solid fa-people-group"></i>
+                        <h3>Formations & Événements</h3>
+                    </div>
+                    <div class="why-item">
+                        <i class="fa-solid fa-arrow-up-right-dots"></i>
+                        <h3>Montée en compétences</h3>
+                    </div>
+                    <div class="why-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h3>Méthode certifiée</h3>
+                    </div>
+                </div> -->
+
+                <!-- Btn Line -->
+                <div class="btn-line">
+                    <a href="#contact"><button class="btn">Contact</button></a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Who Section -->
+        <div class="who">
+            <div class="container">
+                <h2 id="who">Développez vos Softskills grâce à l'impro théâtrale !</h2>
+                <div class="vertical-layout">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Valeur Ajoutée -->
+        <div class="added-value">
+            <div class="container">
+                <!-- <div class="title-container"> -->
+                <h2 id="added-value">Valeur Ajoutée</h2>
+                <!-- </div> -->
+                <!-- CARD TEST -->
+                <div class="card-container">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Section -->
+        <div class="why">
+            <div class="container" id="why">
+                <h2>Apprendre à Oser</h2>
+                <div class="vertical-layout">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Section -->
+        <div class="trust">
+            <div class="container">
+                <h2>Ils nous font confiance</h2>
+
+            </div>
+        </div>
+
+        <!-- News Section -->
+        <div class="news">
+            <div class="container">
+                <h2 id="news">Les Actualités</h2>
+                <!-- CARD TEST -->
+                <div class="group-container">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 id="contact">Contactez-nous</h2>
+                <!-- <p>Toutes nos interventions sont sur-mesure.
+
+                    Nous nous adaptons à vos besoins, à votre budget et à votre nombre de participants (de 6 à +1500
+                    personnes, selon votre projet).
+
+                    Parlez-en avec notre équipe !
+
+                    -----
+
+                    contact@bigimpro.fr
+
+                    Et si vous préférez parler directement à un humain :
+                    07 XX XX XX XX</p> -->
+                <form action="#">
+                    <label for="name">Nom *</label>
+                    <input type="text" id="name" name="name" placeholder="Antoine Dupont" required>
+
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="antoine.dupont@xvdefrance.fr" required>
+
+                    <label for="structure">Structure</label>
+                    <input type="text" id="structure" name="structure" placeholder="Entreprise, collectivité, ..." required>
+
+                    <label for="job">Profession</label>
+                    <input type="text" id="job" name="job" placeholder="Professeur de guitare-couture" required>
+
+                    <label for="tel">Téléphone</label>
+                    <input type="tel" id="tel" name="tel" placeholder="On ne se trompe pas : même d'un chiffre"
+                        required>
+
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" rows="4"
+                        placeholder="Bonjour, mes employés n'ont pas d'humour, qu'est-ce que vous pouvez faire pour nous ?"
+                        required></textarea>
+
+                    <div class="btn-line">
+                        <button type="submit" class="btn">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Big'Impro. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </body>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

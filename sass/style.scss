@@ -469,7 +469,7 @@ h3 {
       padding-left: 1rem;
       text-transform: uppercase;
       overflow-y: auto;
-      max-height: calc(100vh - 25vh);
+      max-height: calc(100vh - 20vh);
       /* Masquer la scrollbar sur Chrome, Safari et Edge */
       &::-webkit-scrollbar {
         width: 0px;
@@ -485,12 +485,18 @@ h3 {
       }
       /* Sous-menus */
       .submenu {
-        padding-top: 0.5rem;
-        margin-left: -70%;
+        padding-top: 1.25rem;
         display: none;
       }
+      .sub-1 {
+        margin-left: -70%;
+      }
+      .sub-2 {
+        margin-left: -100%;
+      }
     }
-    li, .dropdown {
+    li,
+    .dropdown {
       padding: 0.75rem;
       @media #{$breakpoint-tablet} {
         padding: 0.8rem;
@@ -530,8 +536,10 @@ h3 {
       }
       .arrow {
         color: var(--white);
+        display: inline-block;
+        position: fixed;
         text-decoration: none;
-        display: block;
+        transform: none;
         &:hover {
           color: var(--orange);
           cursor: pointer;
@@ -738,7 +746,7 @@ h3 {
             font-size: 1.5rem;
             color: #111827;
           }
-          .company {
+          .structure {
             font-size: 0.9rem;
             color: #6b7280;
           }
@@ -806,7 +814,8 @@ h3 {
   height: auto;
   min-height: 100vh;
   .text-container {
-    background: var(--transOrange);
+    // background: var(--transOrange);
+    background: transparent;
   }
   h3 {
     @include h3(
