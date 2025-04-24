@@ -203,6 +203,7 @@ $breakpoint-desktop: "(min-width: 978px)";
   gap: 10vh;
 }
 .text-container {
+  background: #ffffffe7;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   padding: 3rem;
@@ -215,8 +216,8 @@ h2 {
   @include h2();
 }
 
-.added-value h2,
-.trust h2,
+.why h2,
+.partners h2,
 .contact h2 {
   @include h2($color: var(--black));
   background: #ffffffbe;
@@ -623,8 +624,8 @@ h3 {
   }
 }
 
-/* AddedValue Section */
-.added-value {
+/* Why Section */
+.why {
   background: url(../img/impro-gpt-1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -673,8 +674,8 @@ h3 {
 //   }
 // }
 
-/* Why Section */
-.why {
+/* How Section */
+.how {
   background: url("../img/fond-violet-cochon.png");
   background-size: cover;
   background-blend-mode: soft-light;
@@ -694,8 +695,8 @@ h3 {
   }
 }
 
-/* Trust Section */
-.trust {
+/* Partners Section */
+.partners {
   background: url(../img/impro-gpt-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;

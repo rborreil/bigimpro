@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // SLOGAN
-const sentences = ["« Faster, Higher, Stronger, Together - Devise Olympique »", "« L'ouverture d'esprit n'est pas une fracture du crâne - Pierre Desproges »"];
+const sentences = ["« Faster, Higher, Stronger, Together » - Devise Olympique", "« L'ouverture d'esprit n'est pas une fracture du crâne » - Pierre Desproges"];
 let index = 0;
 const textElement = document.getElementById("changingSlogan");
 
