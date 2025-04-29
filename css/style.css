@@ -63,7 +63,7 @@ $color-orange-text: var(--orangeText);
   desktop: 1024px
 ); */
 .container {
-  width: 90%;
+  width: 80%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10vh 0;
@@ -338,7 +338,7 @@ h3 {
   display: flex;
   flex-direction: column;
   gap: 10vh;
-  width: 90%;
+  width: 80%;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 10vh;
@@ -669,7 +669,7 @@ h3 {
 }
 @media (min-width: 551px) {
   .partners .container {
-    width: 90%;
+    width: 80%;
   }
 }
 .partners .carousel-container {
@@ -774,11 +774,7 @@ h3 {
 
 /* News Section */
 .news {
-  background: url("../img/fond-orange-lapin.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-blend-mode: soft-light;
+  background: var(--red);
   height: auto;
   min-height: 100vh;
 }
@@ -934,7 +930,7 @@ h3 {
 .footer h2 {
   color: var(--red);
   margin-bottom: 0;
-  margin-top: 5vh;
+  margin-top: 10vh;
 }
 .footer .container {
   display: flex;
@@ -971,6 +967,15 @@ h3 {
   font-size: 2rem;
   display: flex;
   gap: 1rem;
+}
+.footer .container-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 10vh;
 }
 .footer h3,
 .footer p {
