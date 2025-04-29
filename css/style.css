@@ -54,8 +54,8 @@ body {
 /* 
 $font-primary: var(--font-primary);
 $font-secondary: var(--font-secondary);
-$color-orange: var(--orange);
-$color-orange-text: var(--orangeText);
+$color-orange: var(--red);
+$color-orange-text: var(--red);
 */
 /* $breakpoints: (
   mobile: 480px,
@@ -91,8 +91,9 @@ h2 {
   font-family: var(--fontDyna);
   font-weight: 500;
   font-size: 1.75rem;
-  padding: 1rem 0;
+  line-height: 2.5rem;
   margin-bottom: 10vh;
+  padding: 1rem 0;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5176470588);
   text-align: center;
 }
@@ -115,8 +116,9 @@ h2 {
   font-family: var(--fontDyna);
   font-weight: 500;
   font-size: 1.75rem;
-  padding: 1rem 0;
+  line-height: 2.5rem;
   margin-bottom: 10vh;
+  padding: 1rem 0;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5176470588);
   text-align: center;
   background: rgba(255, 255, 255, 0.7450980392);
@@ -150,7 +152,7 @@ h2 {
   background-color: var(--white);
   border: 1px solid var(--blue);
   border-radius: 50px;
-  color: var(--orangeText);
+  color: var(--red);
   cursor: pointer;
   display: inline-block;
   font-size: 0.75rem;
@@ -163,8 +165,8 @@ h2 {
   width: auto;
 }
 .btn:hover {
-  background-color: var(--lightWhite);
-  color: var(--blue);
+  background-color: var(--red);
+  color: var(--white);
 }
 @media (min-width: 551px) {
   .btn {
@@ -255,7 +257,7 @@ h3 {
 .card-container .card {
   width: 300px;
   padding: 2rem;
-  border: 1px solid var(--orange);
+  border: 1px solid var(--red);
   border-radius: 1rem;
   background: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -270,6 +272,11 @@ h3 {
 .card-container .card .image-container img {
   height: auto;
   width: 100%;
+}
+.card-container .card .card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .card-container .card .card-content .card-title {
   color: var(--black);
@@ -395,7 +402,7 @@ h3 {
   z-index: 1000;
 }
 .header .burger-menu:hover, .header .burger-menu.open:hover {
-  color: var(--orange);
+  color: var(--red);
   cursor: pointer;
 }
 .header .burger-menu.open {
@@ -491,13 +498,13 @@ h3 {
   /* Bouton CTA */
 }
 .header .sidebar a:hover {
-  color: var(--orange);
+  color: var(--red);
   cursor: pointer;
   text-decoration: none;
   display: block;
 }
 .header .sidebar a.cta-button {
-  background: var(--orange);
+  background: var(--red);
   padding: 8px 15px;
   display: block;
   text-align: center;
@@ -522,7 +529,7 @@ h3 {
   transform: none;
 }
 .header .sidebar .dropdown .arrow:hover {
-  color: var(--orange);
+  color: var(--red);
   cursor: pointer;
   text-decoration: none;
   display: block;
@@ -604,7 +611,7 @@ h3 {
   height: 6rem;
   margin: 0 auto 1rem;
   border-radius: 50%;
-  border: 2px solid var(--orange);
+  border: 2px solid var(--red);
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
@@ -624,7 +631,7 @@ h3 {
 }
 .why .icon-container i {
   font-size: 40px;
-  color: var(--orange);
+  color: var(--red);
   transition: color 0.3s ease;
 }
 
@@ -876,7 +883,7 @@ h3 {
   background-color: var(--white);
   border: 1px solid var(--blue);
   border-radius: 12px;
-  color: var(--orangeText);
+  color: var(--red);
   cursor: pointer;
   display: inline-block;
   font-size: 0.75rem;
@@ -890,8 +897,8 @@ h3 {
   width: 50vw;
 }
 .contact form .btn:hover {
-  background-color: var(--lightWhite);
-  color: var(--blue);
+  background-color: var(--red);
+  color: var(--white);
 }
 @media (min-width: 551px) {
   .contact form .btn {
@@ -904,7 +911,7 @@ h3 {
   }
 }
 .contact form .btn:hover {
-  background-color: var(--orange);
+  background-color: var(--red);
   color: var(--white);
 }
 
@@ -949,6 +956,7 @@ h3 {
 .footer .container ul li {
   font-size: 1rem;
   font-weight: 500;
+  margin-left: 1rem;
 }
 .footer .container ul li:first-child {
   margin-top: 1rem;
@@ -977,9 +985,22 @@ h3 {
   margin: 0 auto;
   padding-bottom: 10vh;
 }
-.footer h3,
-.footer p {
+.footer h3 {
   text-align: center;
+  color: var(--red);
+  font-family: var(--fontLato);
+  font-size: 1rem;
+  margin-top: 0;
+}
+@media (min-width: 551px) {
+  .footer h3 {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 978px) {
+  .footer h3 {
+    font-size: 1rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

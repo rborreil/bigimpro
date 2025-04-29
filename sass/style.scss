@@ -63,8 +63,8 @@ body {
 /* 
 $font-primary: var(--font-primary);
 $font-secondary: var(--font-secondary);
-$color-orange: var(--orange);
-$color-orange-text: var(--orangeText);
+$color-orange: var(--red);
+$color-orange-text: var(--red);
 */
 
 $icon-size: (
@@ -97,9 +97,9 @@ $breakpoint-desktop: "(min-width: 978px)";
 // Mixins
 @mixin btn(
   $bg-color: var(--white),
-  $text-color: var(--orangeText),
-  $bg-hover: var(--lightWhite),
-  $text-hover: var(--blue),
+  $text-color: var(--red),
+  $bg-hover: var(--red),
+  $text-hover: var(--white),
   $borderRadius: 50px
 ) {
   background-color: $bg-color;
@@ -135,8 +135,9 @@ $breakpoint-desktop: "(min-width: 978px)";
   font-family: var(--fontDyna);
   font-weight: 500;
   font-size: 1.75rem;
-  padding: 1rem 0;
+  line-height: 2.5rem;
   margin-bottom: 10vh;
+  padding: 1rem 0;
   // text-shadow: 5px 5px 5px #00000092;
   text-shadow: 5px 5px 5px #00000084;
   text-align: center;
@@ -238,7 +239,7 @@ h2 {
 .btn {
   @include btn();
   // a {
-  //   color: var(--orangeText);
+  //   color: var(--red);
   //   text-decoration: none;
   //   &:hover {
   //     // background-color: var(--lightWhite);
@@ -302,7 +303,7 @@ h3 {
   .card {
     width: 300px;
     padding: 2rem;
-    border: 1px solid var(--orange);
+    border: 1px solid var(--red);
     border-radius: 1rem;
     background: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -320,6 +321,9 @@ h3 {
       }
     }
     .card-content {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
       .card-title {
         @include h3($color: var(--black));
         font-size: 1rem;
@@ -352,7 +356,7 @@ h3 {
 
 /* Header */
 .header {
-  // background: var(--orange) url("../img/motif-zebre.png") 50% 50% no-repeat;
+  // background: var(--red) url("../img/motif-zebre.png") 50% 50% no-repeat;
   background: url(../img/impro-gpt-3.jpg);
   background-size: cover;
   background-position: center;
@@ -428,7 +432,7 @@ h3 {
     z-index: 1000;
     &:hover,
     &.open:hover {
-      color: var(--orange);
+      color: var(--red);
       cursor: pointer;
     }
     &.open {
@@ -511,14 +515,14 @@ h3 {
       text-decoration: none;
       display: block;
       &:hover {
-        color: var(--orange);
+        color: var(--red);
         cursor: pointer;
         text-decoration: none;
         display: block;
       }
       /* Bouton CTA */
       &.cta-button {
-        background: var(--orange);
+        background: var(--red);
         padding: 8px 15px;
         display: block;
         text-align: center;
@@ -542,7 +546,7 @@ h3 {
         text-decoration: none;
         transform: none;
         &:hover {
-          color: var(--orange);
+          color: var(--red);
           cursor: pointer;
           text-decoration: none;
           display: block;
@@ -640,7 +644,7 @@ h3 {
     height: 6rem;
     margin: 0 auto 1rem;
     border-radius: 50%;
-    border: 2px solid var(--orange);
+    border: 2px solid var(--red);
     position: relative;
     overflow: hidden;
     transition: box-shadow 0.3s ease;
@@ -659,7 +663,7 @@ h3 {
     }
     i {
       font-size: 40px;
-      color: var(--orange);
+      color: var(--red);
       transition: color 0.3s ease;
     }
     // &:hover i {
@@ -885,7 +889,7 @@ h3 {
       @include btn($borderRadius: 12px);
       width: 50vw;
       &:hover {
-        background-color: var(--orange);
+        background-color: var(--red);
         color: var(--white);
       }
     }
@@ -933,6 +937,7 @@ h3 {
       li {
         font-size: 1rem;
         font-weight: 500;
+        margin-left: 1rem;
         &:first-child {
           margin-top: 1rem;
         }
@@ -963,8 +968,8 @@ h3 {
     margin: 0 auto;
     padding-bottom: 10vh;
   }
-  h3,
-  p {
+  h3 {
     text-align: center;
+    @include h3($color: var(--red), $fontSizeTablet: 1rem, $fontSizeDesktop: 1rem);
   }
 }
