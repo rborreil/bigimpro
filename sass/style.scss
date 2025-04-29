@@ -890,7 +890,7 @@ h3 {
 
 /* Footer */
 .footer {
-  background: var(--red) url("../img/motif-zebre.png") 50% 50% no-repeat;
+  background: var(--purple) url("../img/motif-zebre.png") 50% 50% no-repeat;
   background-size: cover;
   background-blend-mode: exclusion;
   height: auto;
@@ -899,8 +899,26 @@ h3 {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    // justify-content: center;
+    text-align: center;
+    ul {
+      font-weight: 600;
+      li {
+        font-weight: 500;
+      }
+    }
+  }
   p {
     font-size: 0.9rem;
     margin-bottom: 1rem;
+  }
+  .icones {
+    color: var(--);
+    font-size: 3rem;
   }
 }
