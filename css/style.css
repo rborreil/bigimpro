@@ -34,10 +34,12 @@ scss/
   --orangeText: #ff793f;
   --orangeSam: #eb5600;
   --blue: #22a692;
+  --pale-blue: #a9e1d1;
   --transBlue: #22a692cf;
   --purple: #7c609b;
   --transPurple: #7c609bbc;
   --red: #8d3b3b;
+  --pale-red: #f6c2c2;
   --white: #fff;
   --lightWhite: #ffe6d0;
   --black: #000;
@@ -86,32 +88,6 @@ $color-orange-text: var(--red);
 }
 
 h2 {
-  border-radius: 1rem;
-  color: var(--white);
-  font-family: var(--fontDyna);
-  font-weight: 500;
-  font-size: 1.75rem;
-  line-height: 2.5rem;
-  margin-bottom: 10vh;
-  padding: 1rem 0;
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5176470588);
-  text-align: center;
-}
-@media (min-width: 551px) {
-  h2 {
-    font-size: 4vw;
-  }
-}
-@media (min-width: 978px) {
-  h2 {
-    font-size: 2.5rem;
-  }
-}
-
-.why h2,
-.partners h2,
-.contact h2 {
-  border-radius: 1rem;
   color: var(--black);
   font-family: var(--fontDyna);
   font-weight: 500;
@@ -121,24 +97,14 @@ h2 {
   padding: 1rem 0;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5176470588);
   text-align: center;
-  background: rgba(255, 255, 255, 0.7450980392);
-  border-radius: 1rem;
-  margin: 0 auto 10vh;
-  max-width: 66.6%;
-  padding: 1rem 0;
-  text-shadow: none;
 }
 @media (min-width: 551px) {
-  .why h2,
-  .partners h2,
-  .contact h2 {
+  h2 {
     font-size: 4vw;
   }
 }
 @media (min-width: 978px) {
-  .why h2,
-  .partners h2,
-  .contact h2 {
+  h2 {
     font-size: 2.5rem;
   }
 }
@@ -146,18 +112,19 @@ h2 {
 .btn-line {
   display: flex;
   justify-content: center;
+  gap: 10vw;
 }
 
 .btn {
-  background-color: var(--white);
-  border: 1px solid var(--blue);
-  border-radius: 50px;
-  color: var(--red);
+  background-color: var(--blue);
+  border: 1px solid var(--white);
+  color: var(--white);
   cursor: pointer;
   display: inline-block;
+  font-family: var(--fontLato);
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.25vw;
+  font-weight: 800;
+  letter-spacing: 0.15vw;
   padding: 0.8rem 1.2rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -165,8 +132,8 @@ h2 {
   width: auto;
 }
 .btn:hover {
-  background-color: var(--red);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--black);
 }
 @media (min-width: 551px) {
   .btn {
@@ -329,9 +296,7 @@ h3 {
 */
 /* Header */
 .header {
-  background: url(../img/impro-gpt-3.jpg);
-  background-size: cover;
-  background-position: center;
+  background: var(--red);
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -351,7 +316,26 @@ h3 {
   padding-bottom: 10vh;
 }
 .header .container h2 {
+  color: var(--white);
+  font-family: var(--fontDyna);
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 2.5rem;
+  margin-bottom: 10vh;
+  padding: 1rem 0;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5176470588);
+  text-align: center;
   text-shadow: 5px 5px 5px #000;
+}
+@media (min-width: 551px) {
+  .header .container h2 {
+    font-size: 4vw;
+  }
+}
+@media (min-width: 978px) {
+  .header .container h2 {
+    font-size: 2.5rem;
+  }
 }
 .header .nav ul {
   list-style: none;
@@ -503,16 +487,40 @@ h3 {
   text-decoration: none;
   display: block;
 }
-.header .sidebar a.cta-button {
-  background: var(--red);
+.header .sidebar a.cta-btn {
+  background-color: var(--blue);
+  border: 1px solid var(--white);
+  color: var(--white);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--fontLato);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15vw;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  width: auto;
   padding: 8px 15px;
   display: block;
   text-align: center;
   max-width: min-content;
-  margin: 1.5rem;
+  margin: 1rem 1.5rem 1.5rem 1rem;
 }
-.header .sidebar a.cta-button:hover {
-  color: inherit;
+.header .sidebar a.cta-btn:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+@media (min-width: 551px) {
+  .header .sidebar a.cta-btn {
+    width: 10rem;
+  }
+}
+@media (min-width: 978px) {
+  .header .sidebar a.cta-btn {
+    width: 15rem;
+  }
 }
 .header .sidebar .dropdown {
   display: flex;
@@ -586,9 +594,7 @@ h3 {
 
 /* Who Section */
 .who {
-  background: var(--blue) url("../img/motif-serpent.png") 50% 50% no-repeat;
-  background-size: cover;
-  background-blend-mode: soft-light;
+  background: var(--white);
   min-height: 100vh;
 }
 .who .text-container {
@@ -597,9 +603,7 @@ h3 {
 
 /* Why Section */
 .why {
-  background: url(../img/impro-gpt-1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--pale-red);
   height: auto;
   min-height: 100vh;
 }
@@ -637,13 +641,11 @@ h3 {
 
 /* How Section */
 .how {
-  background: url("../img/fond-violet-cochon.png");
-  background-size: cover;
-  background-blend-mode: soft-light;
+  height: auto;
   min-height: 100vh;
 }
 .how .text-container {
-  background: var(--transPurple);
+  background: var(--transBlue);
 }
 .how h3 {
   color: var(--white);
@@ -664,10 +666,7 @@ h3 {
 
 /* Partners Section */
 .partners {
-  background: url(../img/impro-gpt-2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background: var(--pale-blue);
   height: auto;
   min-height: 100vh;
 }
@@ -741,7 +740,6 @@ h3 {
   border: 1px solid rgba(0, 0, 0, 0.75);
   padding: 0.75rem;
   cursor: pointer;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -880,35 +878,7 @@ h3 {
   margin-bottom: 2rem;
 }
 .contact form .btn {
-  background-color: var(--white);
-  border: 1px solid var(--blue);
-  border-radius: 12px;
-  color: var(--red);
-  cursor: pointer;
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.25vw;
-  padding: 0.8rem 1.2rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
-  width: auto;
   width: 50vw;
-}
-.contact form .btn:hover {
-  background-color: var(--red);
-  color: var(--white);
-}
-@media (min-width: 551px) {
-  .contact form .btn {
-    width: 10rem;
-  }
-}
-@media (min-width: 978px) {
-  .contact form .btn {
-    width: 15rem;
-  }
 }
 .contact form .btn:hover {
   background-color: var(--red);
@@ -956,10 +926,10 @@ h3 {
 .footer .container ul li {
   font-size: 1rem;
   font-weight: 500;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
 .footer .container ul li:first-child {
-  margin-top: 1rem;
+  margin-top: 0.15rem;
 }
 .footer .container ul li .gap-1 {
   display: flex;
@@ -970,6 +940,10 @@ h3 {
   display: flex;
   justify-content: start;
   gap: 0.8rem;
+}
+.footer .container .col-3 {
+  display: flex;
+  gap: 3rem;
 }
 .footer .icones {
   font-size: 2rem;

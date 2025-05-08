@@ -40,11 +40,13 @@ scss/
   --orangeText: #ff793f;
   --orangeSam: #eb5600;
   --blue: #22a692;
+  --pale-blue: #a9e1d1;
   --transBlue: #22a692cf;
   // --blueSam: #1a9988;
   --purple: #7c609b;
   --transPurple: #7c609bbc;
   --red: #8d3b3b;
+  --pale-red: #f6c2c2;
   --white: #fff;
   --lightWhite: #ffe6d0;
   --black: #000;
@@ -96,21 +98,22 @@ $breakpoint-desktop: "(min-width: 978px)";
 // Intégrer media queries via mixin
 // Mixins
 @mixin btn(
-  $bg-color: var(--white),
-  $text-color: var(--red),
-  $bg-hover: var(--red),
-  $text-hover: var(--white),
-  $borderRadius: 50px
+  $bg-color: var(--blue),
+  $text-color: var(--white),
+  $bg-hover: var(--white),
+  $text-hover: var(--black),
+  // $borderRadius: 50px
 ) {
   background-color: $bg-color;
-  border: 1px solid var(--blue);
-  border-radius: $borderRadius;
+  border: 1px solid var(--white);
+  // border-radius: $borderRadius;
   color: $text-color;
   cursor: pointer;
   display: inline-block;
+  font-family: var(--fontLato);
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.25vw;
+  font-weight: 800;
+  letter-spacing: 0.15vw;
   padding: 0.8rem 1.2rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -128,9 +131,9 @@ $breakpoint-desktop: "(min-width: 978px)";
   }
 }
 
-@mixin h2($color: var(--white)) {
+@mixin h2($color: var(--black)) {
   // background: #22a692cf;
-  border-radius: 1rem;
+  // border-radius: 1rem;
   color: $color;
   font-family: var(--fontDyna);
   font-weight: 500;
@@ -217,23 +220,24 @@ h2 {
   @include h2();
 }
 
-.why h2,
-.partners h2,
-.contact h2 {
-  @include h2($color: var(--black));
-  background: #ffffffbe;
-  // background: #22a69256;
-  border-radius: 1rem;
-  margin: 0 auto 10vh;
-  max-width: 66.6%;
-  padding: 1rem 0;
-  text-shadow: none;
-  // text-shadow: 1px 1px 5px #fff;
-}
+// .why h2,
+// .partners h2,
+// .contact h2 {
+//   @include h2($color: var(--black));
+//   background: #ffffffbe;
+//   // background: #22a69256;
+//   border-radius: 1rem;
+//   margin: 0 auto 10vh;
+//   max-width: 66.6%;
+//   padding: 1rem 0;
+//   text-shadow: none;
+//   text-shadow: 1px 1px 5px #fff;
+// }
 
 .btn-line {
   display: flex;
   justify-content: center;
+  gap: 10vw;
 }
 
 .btn {
@@ -357,10 +361,11 @@ h3 {
 /* Header */
 .header {
   // background: var(--red) url("../img/motif-zebre.png") 50% 50% no-repeat;
-  background: url(../img/impro-gpt-3.jpg);
-  background-size: cover;
-  background-position: center;
+  // background: url(../img/impro-gpt-3.jpg);
+  // background-size: cover;
+  // background-position: center;
   // background-blend-mode: soft-light;
+  background: var(--red);
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -376,6 +381,7 @@ h3 {
     margin: 0 auto;
     padding-bottom: 10vh;
     h2 {
+      @include h2($color: var(--white));
       text-shadow: 5px 5px 5px #000;
     }
   }
@@ -521,16 +527,16 @@ h3 {
         display: block;
       }
       /* Bouton CTA */
-      &.cta-button {
-        background: var(--red);
+      &.cta-btn {
+        @include btn();
         padding: 8px 15px;
         display: block;
         text-align: center;
         max-width: min-content;
-        margin: 1.5rem;
+        margin: 1rem 1.5rem 1.5rem 1rem;
       }
-      &.cta-button:hover {
-        color: inherit;
+      &.cta-btn:hover {
+        // color: inherit;
       }
     }
     .dropdown {
@@ -613,9 +619,10 @@ h3 {
 
 /* Who Section */
 .who {
-  background: var(--blue) url("../img/motif-serpent.png") 50% 50% no-repeat;
-  background-size: cover;
-  background-blend-mode: soft-light;
+  // background: var(--blue) url("../img/motif-serpent.png") 50% 50% no-repeat;
+  // background-size: cover;
+  // background-blend-mode: soft-light;
+  background: var(--white);
   min-height: 100vh;
   @media #{$breakpoint-tablet} {
     // margin-top: 10vh;
@@ -630,9 +637,10 @@ h3 {
 
 /* Why Section */
 .why {
-  background: url(../img/impro-gpt-1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background: url(../img/impro-gpt-1.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  background: var(--pale-red);
   height: auto;
   min-height: 100vh;
   // CARD TEST
@@ -680,13 +688,13 @@ h3 {
 
 /* How Section */
 .how {
-  background: url("../img/fond-violet-cochon.png");
-  background-size: cover;
-  background-blend-mode: soft-light;
-  // height: auto;
+  // background: url("../img/fond-violet-cochon.png");
+  // background-size: cover;
+  // background-blend-mode: soft-light;
+  height: auto;
   min-height: 100vh;
   .text-container {
-    background: var(--transPurple);
+    background: var(--transBlue);
   }
   h3 {
     @include h3(
@@ -701,10 +709,11 @@ h3 {
 
 /* Partners Section */
 .partners {
-  background: url(../img/impro-gpt-2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  // background: url(../img/impro-gpt-2.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: center;
+  background: var(--pale-blue);
   height: auto;
   min-height: 100vh;
   .container {
@@ -775,7 +784,7 @@ h3 {
       border: 1px solid rgba(0, 0, 0, 0.75);
       padding: 0.75rem;
       cursor: pointer;
-      border-radius: 50%;
+      // border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -886,7 +895,7 @@ h3 {
       margin-bottom: 2rem;
     }
     .btn {
-      @include btn($borderRadius: 12px);
+      // @include btn($borderRadius: 12px);
       width: 50vw;
       &:hover {
         background-color: var(--red);
@@ -937,9 +946,9 @@ h3 {
       li {
         font-size: 1rem;
         font-weight: 500;
-        margin-left: 1rem;
+        margin-left: .5rem;
         &:first-child {
-          margin-top: 1rem;
+          margin-top: .15rem;
         }
         .gap-1 {
           display: flex;
@@ -952,6 +961,13 @@ h3 {
           gap: 0.8rem;
         }
       }
+    }
+    .col-3 {
+      display: flex;
+      // align-items: center;
+      // justify-content: space-between;
+      // flex-direction: column;
+      gap: 3rem;
     }
   }
   .icones {
